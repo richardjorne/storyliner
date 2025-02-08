@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function VideoPlayer() {
-  const { videoName, backToFile } = useParams();
+  var { videoName, backToFile } = useParams();
 //   const [backToFileState, setBackToFileState] = useState(backToFile || null);
   const [menuVisible, setMenuVisible] = useState(false);
   const [currentJumpOptions, setCurrentJumpOptions] = useState([]);
@@ -253,8 +253,24 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
               console.log("Cleanup recognition:", err);
             }
           }
-      if (backToFile) {
+          
+          if (backToFile) {
         navigate(`/player/${backToFile}`);
+      } else {
+        for (let i = 0; i < triggers.length; i++) {
+            let trigger = triggers[i];
+            if (trigger.type === 0) {
+                if (trigger.jump.length > 0) {
+                    var str = `/player/${trigger.jump[0].fileName}`
+                    if (trigger.jump[0].backTo !== "") {
+                        str += "/" + trigger.jump[0].backTo;
+                    }
+                    navigate(str);
+                }
+                return;
+              }
+            
+          }
       }
     };
 

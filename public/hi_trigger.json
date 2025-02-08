@@ -1,0 +1,37 @@
+{
+  "name": "hi",
+  "description": "efohw",
+  "firstVideo": "1.mov",
+  "videos": [
+    {
+      "name": "1.mov",
+      "path": "/videos/1.mov"
+    }
+  ],
+  "triggers": {
+    "1.mov": [
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "efw",
+        "jump": []
+      },
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "gew",
+        "jump": [
+          {
+            "text": "332",
+            "fileName": "",
+            "backTo": ""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "3r23g",
+  "description": "g32",
+  "firstVideo": "2.mov",
+  "videos": [
+    {
+      "name": "2.mov",
+      "path": "/videos/2.mov"
+    }
+  ],
+  "triggers": {
+    "2.mov": [
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "es",
+        "jump": [
+          {
+            "text": "ewg",
+            "fileName": "1.mov",
+            "backTo": "2.mov"
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "joj",
+        "jump": []
+      }
+    ]
+  }
+}

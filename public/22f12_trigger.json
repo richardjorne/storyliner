@@ -1,0 +1,34 @@
+{
+  "name": "22f12",
+  "description": "2f2",
+  "firstVideo": "1.mov",
+  "videos": [
+    {
+      "name": "1.mov",
+      "path": "/videos/1.mov"
+    },
+    {
+      "name": "2.mov",
+      "path": "/videos/2.mov"
+    }
+  ],
+  "triggers": {
+    "1.mov": [
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "jiojoo",
+        "jump": [
+          {
+            "text": "aaa",
+            "fileName": "3.mov",
+            "backTo": "2.mov"
+          }
+        ]
+      }
+    ],
+    "2.mov": []
+  }
+}

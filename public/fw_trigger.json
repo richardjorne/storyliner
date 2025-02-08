@@ -1,0 +1,31 @@
+{
+  "name": "fw",
+  "description": "3r2",
+  "firstVideo": "1.mov",
+  "videos": [
+    {
+      "name": "1.mov",
+      "path": "/videos/1.mov"
+    }
+  ],
+  "triggers": {
+    "1.mov": [
+      {
+        "type": 1,
+        "startTime": -1,
+        "endTime": -1,
+        "pause": true,
+        "title": "gwe",
+        "jump": []
+      },
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "few",
+        "jump": []
+      }
+    ]
+  }
+}
