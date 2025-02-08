@@ -1,77 +1,42 @@
 {
+  "relax.mp4": [
+    {
+      "type": 3,
+      "startTime": 0,
+      "endTime": -1,
+      "pause": true,
+      "title": "hi",
+      "jump": []
+    }
+  ],
   "hiit.mp4": [
     {
       "type": 1,
-      "startTime": 3,
-      "endTime": -1,
-      "pause": true,
-      "title": "go to",
-      "jump": [
-        {
-          "text": "1",
-          "fileName": "1.mov",
-          "backTo": "hiit.mp4"
-        },
-        {
-          "text": "2",
-          "fileName": "2.mov",
-          "backTo": "hiit.mp4"
-        }
-      ]
-    },
-    {
-      "type": 2,
       "startTime": 0,
       "endTime": -1,
-      "pause": false,
-      "title": "__",
+      "pause": true,
+      "title": "hit2",
       "jump": [
         {
-          "text": "(1|one)",
+          "text": "hit2",
           "fileName": "1.mov",
-          "backTo": "hiit.mp4"
-        },
-        {
-          "text": "(2|two)",
-          "fileName": "2.mov",
-          "backTo": "hiit.mp4"
-        },
-        {
-          "text": "",
-          "fileName": "",
-          "backTo": ""
+          "backTo": "1.mov"
         }
       ]
     }
   ],
   "1.mov": [
     {
-      "type": 0,
+      "type": 2,
       "startTime": 0,
       "endTime": -1,
-      "pause": false,
-      "title": "fwe",
-      "jump": [
-        {
-          "text": "",
-          "fileName": "4.mov",
-          "backTo": "4.mov"
-        }
-      ]
-    }
-  ],
-  "2.mov": [
-    {
-      "type": 3,
-      "startTime": 0.4,
-      "endTime": -1,
       "pause": true,
-      "title": "goto",
+      "title": "gwe",
       "jump": [
         {
-          "text": "(5|five)",
-          "fileName": "5.mov",
-          "backTo": "5.mov"
+          "text": "wge",
+          "fileName": "hiit.mp4",
+          "backTo": "relax.mp4"
         }
       ]
     }

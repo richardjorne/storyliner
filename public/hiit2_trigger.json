@@ -1,0 +1,29 @@
+{
+  "name": "hiit2",
+  "description": "hiit2",
+  "firstVideo": "relax.mp4",
+  "videos": [
+    {
+      "name": "relax.mp4",
+      "path": "/videos/relax.mp4"
+    }
+  ],
+  "triggers": {
+    "relax.mp4": [
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "rel",
+        "jump": [
+          {
+            "text": "hit",
+            "fileName": "hiit.mp4",
+            "backTo": "hiit.mp4"
+          }
+        ]
+      }
+    ]
+  }
+}

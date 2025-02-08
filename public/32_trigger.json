@@ -1,0 +1,43 @@
+{
+  "name": "32",
+  "description": "few",
+  "firstVideo": "1.mov",
+  "videos": [
+    {
+      "name": "1.mov",
+      "path": "/videos/1.mov"
+    },
+    {
+      "name": "relax.mp4",
+      "path": "/videos/relax.mp4"
+    }
+  ],
+  "triggers": {
+    "1.mov": [
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": false,
+        "title": "egw",
+        "jump": [
+          {
+            "text": "gwegw",
+            "fileName": "hiit.mp4",
+            "backTo": "1.mov"
+          }
+        ]
+      }
+    ],
+    "relax.mp4": [
+      {
+        "type": 3,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "hi",
+        "jump": []
+      }
+    ]
+  }
+}

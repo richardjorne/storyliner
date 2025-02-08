@@ -1,0 +1,29 @@
+{
+  "name": "gwe",
+  "description": "g34",
+  "firstVideo": "1.mov",
+  "videos": [
+    {
+      "name": "1.mov",
+      "path": "/videos/1.mov"
+    }
+  ],
+  "triggers": {
+    "1.mov": [
+      {
+        "type": 2,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "gwe",
+        "jump": [
+          {
+            "text": "wge",
+            "fileName": "hiit.mp4",
+            "backTo": "relax.mp4"
+          }
+        ]
+      }
+    ]
+  }
+}

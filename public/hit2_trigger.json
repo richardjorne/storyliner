@@ -1,0 +1,29 @@
+{
+  "name": "hit2",
+  "description": "hit2",
+  "firstVideo": "hiit.mp4",
+  "videos": [
+    {
+      "name": "hiit.mp4",
+      "path": "/videos/hiit.mp4"
+    }
+  ],
+  "triggers": {
+    "hiit.mp4": [
+      {
+        "type": 1,
+        "startTime": 0,
+        "endTime": -1,
+        "pause": true,
+        "title": "hit2",
+        "jump": [
+          {
+            "text": "hit2",
+            "fileName": "1.mov",
+            "backTo": "1.mov"
+          }
+        ]
+      }
+    ]
+  }
+}

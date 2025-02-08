@@ -89,7 +89,7 @@ export default function Creator() {
       // 获取现有的triggers.json内容并添加新的triggers
       let existingTriggers = {};
       try {
-        const response = await fetch('/public/triggers.json');
+        const response = await fetch('/triggers.json');
         if (response.ok) {
           existingTriggers = await response.json();
         }
