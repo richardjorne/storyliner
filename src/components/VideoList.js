@@ -11,7 +11,7 @@ export default function VideoList() {
         {videos.map((video, index) => (
           <Link to={`/player/${video}.mp4`} key={index}>
             <div className="p-4 border rounded-lg shadow-md hover:shadow-lg transition">
-              <video src={`/videos/${video}`} className="w-full h-32 object-cover" />
+              <video src={`/videos/${video}.mp4`} className="w-full h-32 object-cover" />
               <p className="text-center mt-2">{video}</p>
             </div>
           </Link>
