@@ -7,7 +7,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<VideoList />} />
-        <Route path="/player/:videoName" element={<VideoPlayer />} />
+        <Route path="/player/:videoName/:backToFile?" element={<VideoPlayer />} />
       </Routes>
     </Router>
   );
