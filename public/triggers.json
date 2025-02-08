@@ -8,10 +8,10 @@
           { "text": "Go to 5", "fileName": "5.mov", "backTo": "1.mov" }
         ]
       },
-    { "type": 3, "startTime": 0, "endTime": -1, "pause": false, "title": "Where do you want to go?", "jump": [
-        { "text": "(1|one)", "fileName": "1.mov", "backTo": "1.mov" },
-        { "text": "(2|two)", "fileName": "2.mov", "backTo": "1.mov" },
-        { "text": "(3|three)", "fileName": "3.mov", "backTo": "1.mov" }
+      { "type": 2, "startTime": 0, "endTime": -1, "pause": false, "title": "Where do you want to go?", "jump": [
+        { "text": "go\\s*to\\s*(1|one)", "fileName": "1.mov", "backTo": "1.mov" },
+        { "text": "go\\s*to\\s*(2|two)", "fileName": "2.mov", "backTo": "1.mov" },
+        { "text": "go\\s*to\\s*(3|three)", "fileName": "3.mov", "backTo": "1.mov" }
         ]
       }
     ],

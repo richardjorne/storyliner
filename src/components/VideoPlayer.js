@@ -17,10 +17,25 @@ export default function VideoPlayer() {
   const [errorMessage, setErrorMessage] = useState("");
   const [currentPrompt, setCurrentPrompt] = useState("");
     const [currentPatterns, setCurrentPatterns] = useState([]);
+    const [videoAspectRatio, setVideoAspectRatio] = useState(null); // 新增状态
 
   const videoRef = useRef(null);
   const recognition = useRef(null);
   const navigate = useNavigate();
+
+  // 获取视频宽高比
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const aspectRatio = video.videoWidth / video.videoHeight;
+      setVideoAspectRatio(aspectRatio);
+    }
+  }, [videoName]);
+  const videoClassNames = videoAspectRatio
+    ? videoAspectRatio > 1
+      ? "w-full h-full object-cover" // 横屏时全屏
+      : "h-[94vh] w-auto object-contain rounded-xl shadow-2xl backdrop-blur-lg" // 竖屏时填充94%竖向空间
+    : "w-auto h-auto object-contain"; // 还没有获取到视频的宽高比时
 
   const currentListenJumpOptionsRef = useRef([]);
 
@@ -175,6 +190,9 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
     };
 
     const handleVideoEnd = () => {
+        setShowTextInput(false);
+        setMenuVisible(false);
+        setTranscribedText("");
       if (backToFile) {
         navigate(`/player/${backToFile}`);
       }
@@ -197,8 +215,8 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
   }, [triggers, navigate, isRecognitionActive]);
 
   const handleJump = (fileName, backToName) => {
-    navigate(`/player/${fileName}/${backToName}`);
     setMenuVisible(false);
+    navigate(`/player/${fileName}/${backToName}`);
   };
 
   const handleTextSubmit = (e) => {
@@ -238,24 +256,28 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
   };
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center bg-black relative">
-      <video
-        ref={videoRef}
-        src={`/videos/${videoName}`}
-        autoPlay
-        className="object-contain"
-        onKeyDown={handleKeyDown}
+    <div className="w-screen h-screen flex justify-center items-center bg-amber-50 relative">
+    <video
+      ref={videoRef}
+      src={`/videos/${videoName}`}
+      autoPlay
+      className="object-contain rounded-xl shadow-2xl backdrop-blur-lg"
+      onKeyDown={handleKeyDown}
       tabIndex={0}
-      />
-
-      {menuVisible && (
-        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-60 transition-opacity duration-500">
-          <div className="bg-white p-4 rounded-lg shadow-lg">
-            <p className="text-black text-lg mb-2">{titleText}</p>
+    />
+  
+    {menuVisible && (
+        
+      <div className="absolute inset-0 flex flex-col justify-center items-center bg-amber-50/20 backdrop-blur-md transition-all duration-300">
+        <div className="bg-amber-50/70 p-8 rounded-2xl shadow-xl border border-amber-100/60">
+          <p className="text-amber-800 text-xl mb-4 font-semibold">{titleText}</p>
+          <div className="flex flex-wrap justify-center gap-3">
             {currentJumpOptions.map((option, index) => (
               <button
                 key={index}
-                className="bg-blue-500 text-white px-4 py-2 m-2 rounded hover:bg-blue-700"
+                className="bg-amber-600/90 hover:bg-amber-700/90 text-white px-6 py-3 rounded-lg 
+                         transition-all duration-200 shadow-md hover:shadow-lg font-medium 
+                         backdrop-blur-sm"
                 onClick={() => handleJump(option.fileName, option.backTo)}
               >
                 {option.text}
@@ -263,39 +285,46 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
             ))}
           </div>
         </div>
-      )}
-
-{showTextInput && (
-          <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-60">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <p className="text-black text-lg mb-4">{currentPrompt}</p>
-              <form onSubmit={handleTextSubmit} className="flex flex-col items-center">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  className="border-2 border-gray-300 rounded px-4 py-2 mb-4 w-full"
-                  placeholder="Please enter..."
-                />
-                {errorMessage && (
-                  <p className="text-red-500 mb-4">{errorMessage}</p>
-                )}
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700"
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
-
-      {transcribedText && (
-        <div className="absolute bottom-10 left-10 bg-white text-black p-2 rounded-lg max-w-xl overflow-y-auto max-h-32">
-          <p>{transcribedText}</p>
+      </div>
+    )}
+  
+    {showTextInput && (
+      <div className="absolute inset-0 flex flex-col justify-center items-center bg-amber-50/20 backdrop-blur-lg">
+        <div className="bg-amber-50/90 p-8 rounded-2xl shadow-xl border border-amber-100 max-w-md w-full">
+          <p className="text-amber-800 text-xl mb-6 font-medium">{currentPrompt}</p>
+          <form onSubmit={handleTextSubmit} className="space-y-4">
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg border-2 border-amber-200 focus:border-amber-400 
+                       focus:ring-2 focus:ring-amber-300/50 bg-white/50 backdrop-blur-sm 
+                       placeholder:text-amber-400/80 text-amber-800 transition-all"
+              placeholder="Please enter..."
+            />
+            {errorMessage && (
+              <p className="text-red-500/90 text-sm -mb-2">{errorMessage}</p>
+            )}
+            <button
+              type="submit"
+              className="w-full bg-amber-600/90 hover:bg-amber-700/90 text-white py-3 px-6 
+                       rounded-lg transition-all duration-200 shadow-md hover:shadow-lg font-medium"
+            >
+              Submit
+            </button>
+          </form>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  
+    {transcribedText && (
+      <div className="absolute bottom-10 left-10 bg-amber-50/80 backdrop-blur-md p-4 
+                rounded-xl shadow-lg max-w-xl overflow-y-auto max-h-32 border 
+                border-amber-100/50 transition-all duration-300">
+        <p className="text-amber-800/90 leading-relaxed font-medium">{transcribedText}</p>
+      </div>
+    )}
+  </div>
+  
+)
 }
