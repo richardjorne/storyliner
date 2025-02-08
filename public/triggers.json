@@ -32,8 +32,8 @@
   "fr_intro.mov": [
     { "type": 3, "startTime": 26, "endTime": -1, "pause": true, "title": "What's 'Baby' in French?", "jump": [
         { "text": "(bébé)", "fileName": "fr_great.mov", "backTo": "fr_intro.mov" },
-        { "text": "(bebe)", "fileName": "fr_tryagain.mov", "backTo": "fr_intro.mov" },
-        { "text": "(baby)", "fileName": "fr_forget.mov", "backTo": "fr_intro.mov" }
+        { "text": "(bebe)", "fileName": "fr_forget.mov", "backTo": "fr_intro.mov" },
+        { "text": "(baby)", "fileName": "fr_tryagain.mov", "backTo": "fr_intro.mov" }
       ]
     }
   ]
