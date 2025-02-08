@@ -1,43 +1,39 @@
 {
-  "relax.mp4": [
-    {
-      "type": 3,
-      "startTime": 0,
-      "endTime": -1,
-      "pause": true,
-      "title": "hi",
-      "jump": []
-    }
-  ],
-  "hiit.mp4": [
-    {
-      "type": 1,
-      "startTime": 0,
-      "endTime": -1,
-      "pause": true,
-      "title": "hit2",
-      "jump": [
-        {
-          "text": "hit2",
-          "fileName": "1.mov",
-          "backTo": "1.mov"
-        }
+  "hack_intro.mov": [
+    { "type": 1, "startTime": 12, "endTime": -1, "pause": true, "title": "Where do you want to go?", "jump": [
+        { "text": "StairCase", "fileName": "hack_stair.mov", "backTo": "hack_intro.mov" },
+        { "text": "Cafe", "fileName": "hack_sleep.mov", "backTo": "" },
+        { "text": "Outside", "fileName": "hack_rain.mov", "backTo": "hack_intro.mov" }
       ]
     }
   ],
-  "1.mov": [
-    {
-      "type": 2,
-      "startTime": 0,
-      "endTime": -1,
-      "pause": true,
-      "title": "gwe",
-      "jump": [
-        {
-          "text": "wge",
-          "fileName": "hiit.mp4",
-          "backTo": "relax.mp4"
-        }
+  "workout_intro.mov": [
+    { "type": 2, "startTime": 16, "endTime": -1, "pause": false, "title": "Do you want to have a rest?", "jump": [
+        { "text": "(yes|rest)", "fileName": "workout_rest.mov", "backTo": "workout_greatjob.mov" }
+      ]
+    },
+    { "type": 0, "startTime": 16, "endTime": -1, "pause": false, "title": "Do you want to have a rest?", "jump": [
+      { "text": "(yes|rest)", "fileName": "workout_greatjob.mov", "backTo": "" }
+    ]
+  }
+  ],
+  "cook_intro.mov": [
+    { "type": 2, "startTime": 0.1, "endTime": -1, "pause": false, "title": "Where do you want to go?", "jump": [
+        { "text": "(detail)", "fileName": "cook_detail.mov", "backTo": "" }
+      ]
+    }
+  ],
+  "cook_detail.mov": [
+    { "type": 2, "startTime": 0.1, "endTime": -1, "pause": false, "title": "Where do you want to go?", "jump": [
+        { "text": "(ingredient|ingredients)", "fileName": "cook_intro.mov", "backTo": "" }
+      ]
+    }
+  ],
+  "fr_intro.mov": [
+    { "type": 3, "startTime": 26, "endTime": -1, "pause": true, "title": "What's 'Baby' in French?", "jump": [
+        { "text": "(bébé)", "fileName": "fr_great.mov", "backTo": "fr_intro.mov" },
+        { "text": "(bebe)", "fileName": "fr_tryagain.mov", "backTo": "fr_intro.mov" },
+        { "text": "(baby)", "fileName": "fr_forget.mov", "backTo": "fr_intro.mov" }
       ]
     }
   ]

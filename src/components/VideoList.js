@@ -84,14 +84,44 @@ export default function VideoList() {
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   const savedProjects = JSON.parse(localStorage.getItem('projects') || '[]');
+  //   setProjects(savedProjects.length ? savedProjects : [{
+  //     id: 1,
+  //     name: "HIIT Workout",
+  //     description: "Super Course", // 更新为中文描述
+  //     firstVideo: "1.mov"
+  //   }]);
+  // }, []);
   useEffect(() => {
     const savedProjects = JSON.parse(localStorage.getItem('projects') || '[]');
-    setProjects(savedProjects.length ? savedProjects : [{
-      id: 1,
-      name: "HIIT Workout",
-      description: "Super Course", // 更新为中文描述
-      firstVideo: "1.mov"
-    }]);
+  
+    setProjects(savedProjects.length ? savedProjects : [
+      {
+        id: 1,
+        name: "Workout Intro",
+        description: "",
+        firstVideo: "workout_intro.mov"
+      },
+      {
+        id: 2,
+        name: "Hack Intro",
+        description: "",
+        firstVideo: "hack_intro.mov"
+      },
+      {
+        id: 3,
+        name: "Cook Intro",
+        description: "",
+        firstVideo: "cook_intro.mov"
+      },
+      {
+        id: 4,
+        name: "FR Intro",
+        description: "",
+        firstVideo: "fr_intro.mov"
+      }
+    ]);
   }, []);
 
   return (

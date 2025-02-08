@@ -173,6 +173,7 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
         const response = await fetch("/triggers.json");
         const triggersData = await response.json();
         setTriggers(triggersData[videoName] || []);
+        
       } catch (error) {
         console.error("Failed to load triggers:", error);
       }
@@ -183,10 +184,11 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
   // Handle video triggers and speech recognition
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || triggers.length === 0) return;
+    // if (!video || triggers.length === 0) return;
 
     const checkTriggers = () => {
       const currentTime = video.currentTime;
+      console.log(triggers)
 
       triggers.forEach((trigger) => {
         if (
@@ -254,10 +256,7 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
             }
           }
           
-          if (backToFile) {
-        navigate(`/player/${backToFile}`);
-      } else {
-        for (let i = 0; i < triggers.length; i++) {
+          for (let i = 0; i < triggers.length; i++) {
             let trigger = triggers[i];
             if (trigger.type === 0) {
                 if (trigger.jump.length > 0) {
@@ -271,6 +270,10 @@ for (let i = 0; i < currentListenJumpOptionsRef.current.length; i++) {
               }
             
           }
+          if (backToFile) {
+        navigate(`/player/${backToFile}`);
+      } else {
+        
       }
     };
 
